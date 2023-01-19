@@ -1,75 +1,24 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-
-import { images } from '../../constant';
-import { AppWrap } from '../../wrapper';
-import './Header.scss';
-
-const scaleVariants = {
-  whileInView: {
-    scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-      duration: 1,
-      ease: 'easeInOut'
-    }
-  }
-}
-
+import ImageSlider from "./ImageSlider";
 const Header = () => {
+  const slides = [
+    { url: "https://img.freepik.com/free-vector/instagram-carousel-templates_23-2148788328.jpg?w=2000", title: "beach" },
+    { url: "https://img.freepik.com/premium-vector/seamless-carousel-instagram-templates-banner-fashion-sale-colorful_180271-429.jpg?w=2000", title: "boat" },
+    { url: "https://img.freepik.com/premium-vector/seamless-carousel-instagram-templates_180271-439.jpg?w=2000", title: "forest" },
+    { url: "https://elements-cover-images-0.imgix.net/f7328bbf-6c1d-4ec8-983e-cea4a0692e3f?auto=compress%2Cformat&fit=max&w=900&s=b9de49a2ab286c931c994047f324286a", title: "city" },
+    { url: "https://img.freepik.com/premium-vector/carousel-instagram-templates-post-fashion-sale-premium_180271-378.jpg?w=2000", title: "italy" },
+  ];
+  const containerStyles = {
+    width: "100%",
+    height: "500px",
+    margin: "78px auto",
+  };
   return (
-    <div className='app__header app__flex'>
-      <motion.div
-        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-        transition={{ duration: 2 }}
-        className='app__header-info'
-      >
-        <div className='app__header-badge'>
-          <div className='badge-cmp app__flex'>
-            <span>👋</span>
-            <div style={{ marginLeft: 20 }}>
-              <p className='p-text'>Hello, I am</p>
-              <h1 className='head-text'>fahreza</h1>
-            </div>
-          </div>
-
-          <div className='tag-cmp app__flex'>
-            <p className='p-text'>Web Developer</p>
-            <p className='p-text'>Freelancer</p>
-          </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 1, delayChildren: 0.5 }}
-        className='app__header-img'
-      >
-        <img src={images.profile} alt="profile-bg" className='header-img'/>
-        <motion.img
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
-          src={images.circle}
-          alt='profile_circle'
-          className='overlay_circle'
-        />
-      </motion.div>
-
-      <motion.div
-        variant={scaleVariants}
-        whileInView={scaleVariants.whileInView}
-        className="app__header-circle"
-      >
-        {
-          [images.react, images.javascript, images.sass].map((circle, index) => ((
-            <div className='circle-cmp app__flex' key={`circle-${index}`}>
-              <img src={circle} alt="circle" />
-            </div>
-          )))
-        }
-      </motion.div>
+    <div>
+      <div style={containerStyles}>
+        <ImageSlider slides={slides} />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default AppWrap(Header, 'home')
+export default Header;
