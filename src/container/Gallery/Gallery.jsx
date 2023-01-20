@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 import { urlFor, client } from '../../client';
 import { AppWrap, MotionWrap } from '../../wrapper';
-import './About.scss';
+import './Gallery.scss';
 
 
-const About = () => {
+const Gallery = () => {
   const [abouts, setAbouts] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const About = () => {
 
   return (
     <>
-      <h2 className='head-text'>I Know That <span>Good Apps</span><br /> means <span>Good Business</span></h2>
+      <h2 className='head-text'>Gallery</h2>
       <div className='app__profile'>
         {abouts.map((about, index) => (
           <motion.div
@@ -39,7 +39,7 @@ const About = () => {
   )
 }
 export default AppWrap(
-  MotionWrap(About, 'app__about'),
-  'about',
+  MotionWrap(Gallery, 'app__about'),
+  'gallery',
   'app__whitebg',
 );

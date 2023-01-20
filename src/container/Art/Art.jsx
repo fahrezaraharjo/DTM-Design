@@ -5,7 +5,7 @@ import { animate, motion } from 'framer-motion';
 import { AppWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 
-import './Work.scss';
+import './Art.scss';
 
 
 const Work = () => {
@@ -42,19 +42,8 @@ const Work = () => {
 
   return (
     <>
-      <h2 className='head-text'>My Creative <span>Portfolio</span> section</h2>
+      <h2 className='head-text'>Art</h2>
 
-      <div className='app__work-filter'>
-        {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
-          <div
-            key={index}
-            onClick={() => handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''} `}
-          >
-            {item}
-          </div>
-        ))}
-      </div>
 
       <motion.div
         animate={animateCard}
@@ -108,4 +97,4 @@ const Work = () => {
   )
 }
 
-export default AppWrap(Work, 'work')
+export default AppWrap(Work, 'art')

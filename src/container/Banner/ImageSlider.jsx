@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './ImageSlider.scss'
 
 const slideStyles = {
   width: "100%",
@@ -7,28 +8,6 @@ const slideStyles = {
   backgroundSize: "cover",
   backgroundPosition: "center",
   objectFit: "cover"
-};
-
-const rightArrowStyles = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0, -50%)",
-  right: "32px",
-  fontSize: "45px",
-  color: "#fff",
-  zIndex: 1,
-  cursor: "pointer",
-};
-
-const leftArrowStyles = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0, -50%)",
-  left: "32px",
-  fontSize: "45px",
-  color: "#fff",
-  zIndex: 1,
-  cursor: "pointer",
 };
 
 const sliderStyles = {
@@ -68,12 +47,12 @@ const ImageSlider = ({ slides }) => {
   };
 
   return (
-    <div style={sliderStyles}>
+    <div className="slider-style">
       <div>
-        <div onClick={goToPrevious} style={leftArrowStyles}>
+        <div onClick={goToPrevious} className="leftArrow">
           ❰
         </div>
-        <div onClick={goToNext} style={rightArrowStyles}>
+        <div onClick={goToNext} className="rightArrow">
           ❱
         </div>
       </div>

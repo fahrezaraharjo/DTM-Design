@@ -1,0 +1,26 @@
+.leftArrow{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50);
+    left: 32px;
+    font-size: 45px;
+    z-index: 1;
+    color: black;
+    cursor: pointer;
+}
+
+.rightArrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 32px;
+    font-size: 45px;
+    z-index: 1;
+    color: black;
+    cursor: pointer;
+}
+
+.slider-style {
+    position: relative;
+    height: 100%;
+}
