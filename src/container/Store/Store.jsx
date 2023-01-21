@@ -5,17 +5,17 @@ import { animate, motion } from 'framer-motion';
 import { AppWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 
-import './Art.scss';
+import './Store.scss';
 
 
-const Art = () => {
+const Store = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [works, setWorks] = useState('');
   const [filterWork, setFilterWork] = useState([])
 
   useEffect(() => {
-    const query = '*[_type == "art"]';
+    const query = '*[_type == "store"]';
 
     client.fetch(query)
       .then((data) => {
@@ -42,7 +42,7 @@ const Art = () => {
 
   return (
     <>
-      <h2 className='head-text'>Art</h2>
+      <h2 className='head-text'>Store</h2>
 
 
       <motion.div
@@ -97,4 +97,4 @@ const Art = () => {
   )
 }
 
-export default AppWrap(Art, 'art')
+export default AppWrap(Store, 'store')
