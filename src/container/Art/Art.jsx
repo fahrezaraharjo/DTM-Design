@@ -69,16 +69,6 @@ const Art = () => {
                     <AiFillEye />
                   </motion.div>
                 </a>
-                <a href={work.codeLink} target={work.projectLink} >
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className='app__flex'
-                  >
-                    <AiFillGithub />
-                  </motion.div>
-                </a>
               </motion.div>
             </div>
 
@@ -97,4 +87,6 @@ const Art = () => {
   )
 }
 
-export default AppWrap(Art, 'art')
+export default AppWrap(Art, 'art',
+'app__whitebg'
+)

@@ -5,17 +5,17 @@ import { animate, motion } from 'framer-motion';
 import { AppWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 
-import './Store.scss';
+import './Program.scss';
 
 
-const Store = () => {
+const Program = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [works, setWorks] = useState('');
   const [filterWork, setFilterWork] = useState([])
 
   useEffect(() => {
-    const query = '*[_type == "store"]';
+    const query = '*[_type == "program"]';
 
     client.fetch(query)
       .then((data) => {
@@ -42,7 +42,7 @@ const Store = () => {
 
   return (
     <>
-      <h2 className='head-text'>Store</h2>
+      <h2 className='head-text'>Program</h2>
 
 
       <motion.div
@@ -51,12 +51,13 @@ const Store = () => {
         className='app__work-portfolio'
       >
         {filterWork.map((work, index) => (
-          <div className='app__store-item app__flex' key={index}>
+          <div className='app__program-item app__flex' key={index}>
             <div className='app__work-img app__flex'>
               <img src={urlFor(work.imgUrl)} alt={work.name} />
               <motion.div
-                whileHover={{ opacity: [0, 1] }}
-                transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
+                whileInView={{ opacity: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5, type: 'tween' }}
                 className='app__work-hover app__flex'
               >
                 <a href={work.projectLink} target={work.projectLink} >
@@ -69,6 +70,7 @@ const Store = () => {
                     <AiFillEye />
                   </motion.div>
                 </a>
+
               </motion.div>
             </div>
 
@@ -87,4 +89,4 @@ const Store = () => {
   )
 }
 
-export default AppWrap(Store, 'store')
+export default AppWrap(Program, 'program')

@@ -1,4 +1,4 @@
-export { default as Gallery } from './Gallery/Gallery';   
+export { default as Program } from './Program/Program';   
 export { default as Footer } from './Footer/Footer';   
 export { default as Banner } from './Banner/Banner';   
 export { default as Store } from './Store/Store';   

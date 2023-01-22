@@ -15,7 +15,8 @@
     align-items: center;
     flex-wrap: wrap;
     margin: 4em 2rem 2rem;
-  
+    background: var(--white-color);
+    
     .app__footer-card {
       min-width: 290px;
       display: flex;
@@ -77,8 +78,7 @@
       margin: 0.75rem 0;
       border-radius: 10px;
       cursor: pointer;
-      background-color: var(--primary-color);
-  
+      
       transition: all 0.3s ease-in-out;
   
       input,
@@ -87,7 +87,7 @@
         padding: 0.95rem;
         border: none;
         border-radius: 7px;
-        background-color: var(--primary-color);
+        background-color: var(--white-color);
   
         font-family: var(--font-base);
         color: var(--secondary-color);

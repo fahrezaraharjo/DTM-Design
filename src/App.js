@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Gallery, Footer, Banner, Art, Store, PromoC2 } from './container';
+import { Program, Footer, Banner, Art, Store, PromoC2 } from './container';
 import { Navbar } from './components';
 import './App.scss';
 
@@ -9,7 +9,7 @@ const App = () => {
         <div className='app'>
             <Navbar />
             <Banner />
-            <Gallery />
+            <Program />
             <Art />
             <Store />
             <PromoC2 />

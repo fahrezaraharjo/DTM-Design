@@ -10,7 +10,7 @@ const Banner = () => {
     { url: "https://elements-cover-images-0.imgix.net/f7328bbf-6c1d-4ec8-983e-cea4a0692e3f?auto=compress%2Cformat&fit=max&w=900&s=b9de49a2ab286c931c994047f324286a", title: "city" },
     { url: "https://img.freepik.com/premium-vector/carousel-instagram-templates-post-fashion-sale-premium_180271-378.jpg?w=2000", title: "italy" },
   ];
-  
+
   return (
     <div>
       <div className="container-banner">
@@ -20,4 +20,6 @@ const Banner = () => {
   );
 };
 
-export default AppWrap(Banner, 'banner');
+export default AppWrap(Banner, 'banner',
+  'app__whitebg'
+);
