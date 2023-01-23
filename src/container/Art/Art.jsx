@@ -11,35 +11,18 @@ import './Art.scss';
 const Art = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
-  const [works, setWorks] = useState('');
-  const [filterWork, setFilterWork] = useState([])
+  const [arts, setArts] = useState('');
+  const [filterArt, setFilterArt] = useState([])
 
   useEffect(() => {
     const query = '*[_type == "art"]';
 
     client.fetch(query)
       .then((data) => {
-        setWorks(data);
-        setFilterWork(data)
+        setArts(data);
+        setFilterArt(data)
       })
   }, [])
-
-  const handleWorkFilter = (item) => {
-    setActiveFilter(item)
-    setAnimateCard([{ y: 100, opacity: 0 }])
-
-    setTimeout(() => {
-      setAnimateCard([{ y: 0, opacity: 1 }])
-
-      if (item === 'All') {
-        setFilterWork(works)
-      } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)))
-      }
-    }, 500);
-  }
-
-
   return (
     <>
       <h2 className='head-text'>Art</h2>
@@ -48,18 +31,18 @@ const Art = () => {
       <motion.div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className='app__work-portfolio'
+        className='app__art-portfolio'
       >
-        {filterWork.map((work, index) => (
-          <div className='app__work-item app__flex' key={index}>
-            <div className='app__work-img app__flex'>
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
+        {filterArt.map((art, index) => (
+          <div className='app__art-item app__flex' key={index}>
+            <div className='app__art-img app__flex'>
+              <img src={urlFor(art.imgUrl)} alt={art.name} />
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
                 transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
-                className='app__work-hover app__flex'
+                className='app__art-hover app__flex'
               >
-                <a href={work.projectLink} target={work.projectLink} >
+                <a href={art.projectLink} target={art.projectLink} >
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -72,12 +55,12 @@ const Art = () => {
               </motion.div>
             </div>
 
-            <div className='app__work-content app__flex'>
-              <h4 className='bold-text'>{work.title}</h4>
-              <p className='p-text' style={{ marginTop: 10 }}>{work.description}</p>
+            <div className='app__art-content app__flex'>
+              <h4 className='bold-text'>{art.title}</h4>
+              <p className='p-text' style={{ marginTop: 10 }}>{art.description}</p>
 
-              <div className='app__work-tag app__flex'>
-                <p className='p-text'>{work.tags[0]}</p>
+              <div className='app__art-tag app__flex'>
+                <p className='p-text'>{art.tags[0]}</p>
               </div>
             </div>
           </div>

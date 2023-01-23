@@ -11,34 +11,18 @@ import './Store.scss';
 const Store = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
-  const [works, setWorks] = useState('');
-  const [filterWork, setFilterWork] = useState([])
+  const [stores, setStores] = useState('');
+  const [filterStore, setFilterStore] = useState([])
 
   useEffect(() => {
     const query = '*[_type == "store"]';
 
     client.fetch(query)
       .then((data) => {
-        setWorks(data);
-        setFilterWork(data)
+        setStores(data);
+        setFilterStore(data)
       })
   }, [])
-
-  const handleWorkFilter = (item) => {
-    setActiveFilter(item)
-    setAnimateCard([{ y: 100, opacity: 0 }])
-
-    setTimeout(() => {
-      setAnimateCard([{ y: 0, opacity: 1 }])
-
-      if (item === 'All') {
-        setFilterWork(works)
-      } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)))
-      }
-    }, 500);
-  }
-
 
   return (
     <>
@@ -48,18 +32,18 @@ const Store = () => {
       <motion.div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className='app__work-portfolio'
+        className='app__store-portfolio'
       >
-        {filterWork.map((work, index) => (
+        {filterStore.map((store, index) => (
           <div className='app__store-item app__flex' key={index}>
-            <div className='app__work-img app__flex'>
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
+            <div className='app__store-img app__flex'>
+              <img src={urlFor(store.imgUrl)} alt={store.name} />
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
                 transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
-                className='app__work-hover app__flex'
+                className='app__store-hover app__flex'
               >
-                <a href={work.projectLink} target={work.projectLink} >
+                <a href={store.projectLink} target={store.projectLink} >
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -72,12 +56,12 @@ const Store = () => {
               </motion.div>
             </div>
 
-            <div className='app__work-content app__flex'>
-              <h4 className='bold-text'>{work.title}</h4>
-              <p className='p-text' style={{ marginTop: 10 }}>{work.description}</p>
+            <div className='app__store-content app__flex'>
+              <h4 className='bold-text'>{store.title}</h4>
+              <p className='p-text' style={{ marginTop: 10 }}>{store.description}</p>
 
-              <div className='app__work-tag app__flex'>
-                <p className='p-text'>{work.tags[0]}</p>
+              <div className='app__store-tag app__flex'>
+                <p className='p-text'>{store.tags[0]}</p>
               </div>
             </div>
           </div>

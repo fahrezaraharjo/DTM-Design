@@ -7,13 +7,13 @@ import './PromoC2.scss';
 
 
 const PromoC2 = () => {
-  const [abouts, setAbouts] = useState([]);
+  const [promos, setPromos] = useState([]);
 
   useEffect(() => {
     const query = '*[_type == "promoc2"]';
 
     client.fetch(query).then((data) => {
-      setAbouts(data);
+      setPromos(data);
     });
   }, []);
 
@@ -21,20 +21,20 @@ const PromoC2 = () => {
     <>
       <h2 className='head-text'>PromoC2</h2>
       <div className='app__profile'>
-        {abouts.map((about, index) => (
+        {promos.map((promo, index) => (
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: 'tween' }}
             className='app__promoc2-item'
-            key={about.title + index }
+            key={promo.title + index }
           >
             <div className='container__promo-img'>
-            <img src={urlFor(about.imgUrl)} alt="about.title" />
+            <img src={urlFor(promo.imgUrl)} alt="promo.title" />
             </div>
             <div className='description-artikel'>
-            <h2 className='bold-text' style={{ marginTop: 20 }}>{about.title}</h2>
-            <p className='p-text' style={{ marginTop: 10 }}>{about.description}</p>
+            <h2 className='bold-text' style={{ marginTop: 20 }}>{promo.title}</h2>
+            <p className='p-text' style={{ marginTop: 10 }}>{promo.description}</p>
             </div>
           </motion.div>
         ))}
@@ -43,7 +43,7 @@ const PromoC2 = () => {
   )
 }
 export default AppWrap(
-  MotionWrap(PromoC2, 'app__about'),
+  MotionWrap(PromoC2, 'app__promo'),
   'promoc2',
   'app__whitebg',
 );

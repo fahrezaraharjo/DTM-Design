@@ -11,56 +11,39 @@ import './Program.scss';
 const Program = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
-  const [works, setWorks] = useState('');
-  const [filterWork, setFilterWork] = useState([])
+  const [programs, setPrograms] = useState('');
+  const [filterProgram, setFilterProgram] = useState([])
 
   useEffect(() => {
     const query = '*[_type == "program"]';
 
     client.fetch(query)
       .then((data) => {
-        setWorks(data);
-        setFilterWork(data)
+        setPrograms(data);
+        setFilterProgram(data)
       })
   }, [])
 
-  const handleWorkFilter = (item) => {
-    setActiveFilter(item)
-    setAnimateCard([{ y: 100, opacity: 0 }])
-
-    setTimeout(() => {
-      setAnimateCard([{ y: 0, opacity: 1 }])
-
-      if (item === 'All') {
-        setFilterWork(works)
-      } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)))
-      }
-    }, 500);
-  }
-
+  
 
   return (
     <>
       <h2 className='head-text'>Program</h2>
-
-
       <motion.div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className='app__work-portfolio'
+        className='app__program-portfolio'
       >
-        {filterWork.map((work, index) => (
+        {filterProgram.map((program, index) => (
           <div className='app__program-item app__flex' key={index}>
-            <div className='app__work-img app__flex'>
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
+            <div className='app__program-img app__flex'>
+              <img src={urlFor(program.imgUrl)} alt={program.name} />
               <motion.div
-                whileInView={{ opacity: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.5, type: 'tween' }}
-                className='app__work-hover app__flex'
+                whileHover={{ opacity: [0, 1] }}
+                transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
+                className='app__art-hover app__flex'
               >
-                <a href={work.projectLink} target={work.projectLink} >
+                <a href={program.projectLink} target={program.projectLink} >
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -74,12 +57,12 @@ const Program = () => {
               </motion.div>
             </div>
 
-            <div className='app__work-content app__flex'>
-              <h4 className='bold-text'>{work.title}</h4>
-              <p className='p-text' style={{ marginTop: 10 }}>{work.description}</p>
+            <div className='app__program-content app__flex'>
+              <h4 className='bold-text'>{program.title}</h4>
+              <p className='p-text' style={{ marginTop: 10 }}>{program.description}</p>
 
-              <div className='app__work-tag app__flex'>
-                <p className='p-text'>{work.tags[0]}</p>
+              <div className='app__program-tag app__flex'>
+                <p className='p-text'>{program.tags[0]}</p>
               </div>
             </div>
           </div>
