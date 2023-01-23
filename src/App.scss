@@ -31,6 +31,8 @@
     width: 100%;
     flex-direction: column;
     padding: 4rem 2rem;
+    overflow: hidden;
+    flex-grow: 1;
     
   
     @media screen and (max-width: 450px) {
