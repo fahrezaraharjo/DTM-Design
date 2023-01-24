@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+  import React, { useState } from 'react';
 import { images } from '../../constant';
 import './Navbar.scss';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';

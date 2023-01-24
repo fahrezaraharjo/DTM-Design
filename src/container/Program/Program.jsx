@@ -6,7 +6,7 @@ import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 
 import './Program.scss';
-
+import { images } from '../../constant';
 
 const Program = () => {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -30,58 +30,62 @@ const Program = () => {
 
 
   return (
-    <motion.div
-      ref={constraintsRef}
-      className='carousel'>
-      <h2 className='head-text'>Program</h2>
+    <>
+    <div className='program-title'>
+      <img src={images.program} alt="logo" />
+    </div>
       <motion.div
-        drag='x'
-        dragConstraints={constraintsRef}
-        animate={animateCard}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className='inner-carousel'
-      >
-        {filterProgram.map((program, index) => (
-          <motion.div
-            whileInView={{ opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: 'tween' }}
-            className='app__program-item app__flex'
-            key={index}>
-            <div className='app__program-img app__flex'>
-              <img src={urlFor(program.imgUrl)} alt={program.name} />
-              <motion.div
-                whileHover={{ opacity: [0, 1] }}
-                transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
-                className='app__program-hover app__flex'
-              >
-                <a href={program.projectLink} target={program.projectLink} >
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className='app__flex'
-                  >
-                    <AiFillEye />
-                  </motion.div>
-                </a>
+        ref={constraintsRef}
+        className='carousel'>
+        <motion.div
+          drag='x'
+          dragConstraints={constraintsRef}
+          animate={animateCard}
+          transition={{ duration: 0.5, delayChildren: 0.5 }}
+          className='inner-carousel'
+        >
+          {filterProgram.map((program, index) => (
+            <motion.div
+              whileInView={{ opacity: 1 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.5, type: 'tween' }}
+              className='app__program-item app__flex'
+              key={index}>
+              <div className='app__program-img app__flex'>
+                <img src={urlFor(program.imgUrl)} alt={program.name} />
+                <motion.div
+                  whileHover={{ opacity: [0, 1] }}
+                  transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
+                  className='app__program-hover app__flex'
+                >
+                  <a href={program.projectLink} target={program.projectLink} >
+                    <motion.div
+                      whileInView={{ scale: [0, 1] }}
+                      whileHover={{ scale: [1, 0.9] }}
+                      transition={{ duration: 0.25 }}
+                      className='app__flex'
+                    >
+                      <AiFillEye />
+                    </motion.div>
+                  </a>
 
-              </motion.div>
-            </div>
-
-            <div className='app__program-content app__flex'>
-              <h4 className='bold-text'>{program.title}</h4>
-              <p className='p-text' style={{ marginTop: 10 }}>{program.description}</p>
-
-              <div className='app__program-tag app__flex'>
-                <p className='p-text'>{program.tags[0]}</p>
+                </motion.div>
               </div>
-            </div>
+
+              <div className='app__program-content app__flex'>
+                <h4 className='bold-text'>{program.title}</h4>
+                <p className='p-text' style={{ marginTop: 10 }}>{program.description}</p>
+
+                <div className='app__program-tag app__flex'>
+                  <p className='p-text'>{program.tags[0]}</p>
+                </div>
+              </div>
             </motion.div>
-        ))}
+          ))}
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </>
   )
 }
 
-export default AppWrap(MotionWrap(Program), 'program')
+export default AppWrap(MotionWrap(Program), 'program', 'app__programbg')

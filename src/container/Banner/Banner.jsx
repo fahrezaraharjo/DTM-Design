@@ -21,5 +21,5 @@ const Banner = () => {
 };
 
 export default AppWrap(Banner, 'banner',
-  'app__whitebg'
+  'app__bannerbg'
 );

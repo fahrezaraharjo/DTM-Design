@@ -11,6 +11,7 @@ const App = () => {
     return (
         <div className='app'>
             <BrowserRouter>
+            <Navbar />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/program" element={<Programs />} />
