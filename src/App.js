@@ -1,19 +1,24 @@
-import React from 'react';
-
-import { Program, Footer, Banner, Art, Store, PromoC2 } from './container';
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+  } from "react-router-dom";
 import { Navbar } from './components';
+import { Home, Programs, Arts, Stores } from './pages'
 import './App.scss';
 
 const App = () => {
     return (
         <div className='app'>
-            <Navbar />
-            <Banner />
-            <Program />
-            <Art />
-            <Store />
-            <PromoC2 />
-            <Footer />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/program" element={<Programs />} />
+                    <Route path="/art" element={<Arts />} />
+                    <Route path="/store" element={<Stores />} />
+                </Routes>
+            </BrowserRouter>
+
         </div>
     )
 }
