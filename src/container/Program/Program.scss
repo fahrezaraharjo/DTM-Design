@@ -4,7 +4,7 @@
     flex-direction: column;
 }
 
-.carousel{
+.carousel {
     width: 100%;
     cursor: grab;
     overflow: hidden;
@@ -22,7 +22,6 @@
             border-radius: 0.5rem;
             background-color: #fff;
             color: #000;
-            pointer-events: none;
 
             cursor: pointer;
             transition: all 0.3s ease;
