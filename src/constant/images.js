@@ -5,6 +5,8 @@ import promoC2 from '../assets/PromoC2.png';
 import logo5 from '../assets/logo5.png';
 import email from '../assets/email.png';
 import mobile from '../assets/mobile.png';
+import event from '../assets/Event.png';
+
 
 
 export default {
@@ -14,5 +16,6 @@ export default {
   program,
   art,
   store,
-  promoC2
+  promoC2,
+  event
 };

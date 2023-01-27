@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
-import './Stores.scss';
+import './PromoC2s.scss';
 
-const Work = () => {
+const PromoC2s = () => {
   const [works, setWorks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
   useEffect(() => {
-    const query = '*[_type == "store"]';
+    const query = '*[_type == "promoc2"]';
 
     client.fetch(query).then((data) => {
       setWorks(data);
@@ -41,7 +41,7 @@ const Work = () => {
       <h2 className="head-text">Shopping <span>Now</span> </h2>
 
       <div className="app__work-filter">
-        {['Shoes', 'T-shirt', 'Jacket', 'All'].map((item, index) => (
+        {['F&B', 'promo', 'Fashion & Lifestyle', 'All'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
@@ -69,6 +69,7 @@ const Work = () => {
               <h4 className="bold-text">{work.title}</h4>
               <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
 
+
               <div className="app__work-tag app__flex">
                 <p className="p-text">{work.tags[0]}</p>
               </div>
@@ -81,7 +82,7 @@ const Work = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Work, 'app__works'),
+  MotionWrap(PromoC2s, 'app__works'),
   'work',
-  'app__storebg',
+  'app__promoc2bg',
 );

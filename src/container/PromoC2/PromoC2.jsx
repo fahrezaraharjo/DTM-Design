@@ -25,39 +25,42 @@ const PromoC2 = () => {
 
   return (
     <>
-    <div className='program-title'>
-      <img src={images.promoC2} alt="logo" />
-    </div>
+      <div className='program-title'>
+        <img src={images.promoC2} alt="logo" />
+      </div>
       <motion.div
         ref={constraintsRef}
         className='carousel'>
-        <motion.di
-          drag='x'
-          dragConstraints={constraintsRef}
-          animate={animateCard}
-          transition={{ duration: 0.5, delayChildren: 0.5 }}
-          className='inner-carousel'
-        >
-          {promos.map((promo, index) => (
-            <motion.div
-              whileInView={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.5, type: 'tween' }}
-              className='app__promoc2-item'
-              key={promo.title + index}
-            >
-              <div className='container__promo-img'>
-                <a href={promo.projectLink} target={promo.projectLink} >
-                  <img src={urlFor(promo.imgUrl)} alt="promo.title" />
-                </a>
-              </div>
-              <div className='description-artikel'>
-                <h2 className='bold-text' style={{ marginTop: 20 }}>{promo.title}</h2>
-                <p className='p-text' style={{ marginTop: 10 }}>{promo.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.di>
+        <a href="/promoc2">
+
+          <motion.di
+            drag='x'
+            dragConstraints={constraintsRef}
+            animate={animateCard}
+            transition={{ duration: 0.5, delayChildren: 0.5 }}
+            className='inner-carousel'
+          >
+            {promos.map((promo, index) => (
+              <motion.div
+                whileInView={{ opacity: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5, type: 'tween' }}
+                className='app__promoc2-item'
+                key={promo.title + index}
+              >
+                <div className='container__promo-img'>
+                  <a href={promo.projectLink} target={promo.projectLink} >
+                    <img src={urlFor(promo.imgUrl)} alt="promo.title" />
+                  </a>
+                </div>
+                <div className='description-artikel'>
+                  <h2 className='bold-text' style={{ marginTop: 20 }}>{promo.title}</h2>
+                  <p className='p-text' style={{ marginTop: 10 }}>{promo.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.di>
+        </a>
       </motion.div>
     </>
   )

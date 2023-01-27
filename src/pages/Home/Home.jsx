@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Program, Footer, Banner, Art, Store, PromoC2 } from '../../container';
+import { Program, Footer, Banner, Art, Store, PromoC2, EventCon } from '../../container';
 import './Home.scss';
 
 const Home = () => {
@@ -12,6 +12,7 @@ const Home = () => {
             <Art />
             <Store />
             <PromoC2 />
+            <EventCon />
             <Footer />
         </div>
     )
