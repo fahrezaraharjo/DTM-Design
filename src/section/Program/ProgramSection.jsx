@@ -1,39 +1,28 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { animate, motion } from 'framer-motion';
-
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
-
-import './Program.scss';
 import { images } from '../../constant';
 
+import './ProgramSection.scss';
+
 const Program = () => {
-  const [activeFilter, setActiveFilter] = useState('All')
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
-  const [programs, setPrograms] = useState('');
-  const [filterProgram, setFilterProgram] = useState([])
-
+  const [programs, setPrograms] = useState([])
   const constraintsRef = useRef(null)
-
-
   useEffect(() => {
     const query = '*[_type == "program"]';
-
     client.fetch(query)
       .then((data) => {
-        setPrograms(data);
-        setFilterProgram(data)
+        setPrograms(data)
       })
   }, [])
-
-
-
   return (
     <>
-    <div className='program-title'>
-      <img src={images.program} alt="logo" />
-    </div>
+      <div className='program-title'>
+        <img src={images.program} alt="logo" />
+      </div>
       <motion.div
         ref={constraintsRef}
         className='carousel'>
@@ -44,7 +33,7 @@ const Program = () => {
           transition={{ duration: 0.5, delayChildren: 0.5 }}
           className='inner-carousel'
         >
-          {filterProgram.map((program, index) => (
+          {programs.map((program, index) => (
             <motion.div
               whileInView={{ opacity: 1 }}
               whileHover={{ scale: 1.1 }}
