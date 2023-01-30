@@ -33,7 +33,7 @@ const PromoC2 = () => {
           transition={{ duration: 0.5, delayChildren: 0.5 }}
           className='inner-carousel'
         >
-          {promos.map((promo, index) => (
+          {promos.slice(0, 2).map((promo, index) => (
             <motion.div
               whileInView={{ opacity: 1 }}
               whileHover={{ scale: 1.1 }}

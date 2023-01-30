@@ -36,7 +36,7 @@ const Event = () => {
             transition={{ duration: 0.5, delayChildren: 0.5 }}
             className='inner-carousel'
           >
-            {arts.map((art, index) => (
+            {arts.slice(0,3).map((art, index) => (
               <motion.div
                 whileInView={{ opacity: 1 }}
                 whileHover={{ scale: 1.1 }}

@@ -50,7 +50,6 @@ const EventCon = () => {
                     transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
                     className='app__store-hover app__flex'
                   >
-
                   </motion.div>
                 </div>
 

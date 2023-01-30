@@ -39,7 +39,7 @@ const Store = () => {
           transition={{ duration: 0.5, delayChildren: 0.5 }}
           className='inner-carousel'
         >
-          {stores.map((store, index) => (
+          {stores.slice(0, 3).map((store, index) => (
             <motion.div
               whileInView={{ opacity: 1 }}
               whileHover={{ scale: 1.1 }}

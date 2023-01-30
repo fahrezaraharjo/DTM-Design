@@ -33,7 +33,7 @@ const Program = () => {
           transition={{ duration: 0.5, delayChildren: 0.5 }}
           className='inner-carousel'
         >
-          {programs.map((program, index) => (
+          {programs.slice(0, 5).map((program, index) => (
             <motion.div
               whileInView={{ opacity: 1 }}
               whileHover={{ scale: 1.1 }}
@@ -64,7 +64,6 @@ const Program = () => {
               <div className='app__program-content app__flex'>
                 <h4 className='bold-text'>{program.title}</h4>
                 <p className='p-text' style={{ marginTop: 10 }}>{program.description}</p>
-
                 <div className='app__program-tag app__flex'>
                   <p className='p-text'>{program.tags[0]}</p>
                 </div>

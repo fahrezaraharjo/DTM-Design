@@ -94,6 +94,13 @@
 }
 
 .program-title {
+  @media screen and (max-width: 768px) {
+    align-items: center;
+  }
+
+  @media screen and (max-width: 450px) {
+    align-items: center;
+  }
   img {
     height: 5em;
   }
@@ -109,6 +116,12 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    padding: 10px 12px;
+    flex-wrap: wrap;
+  }
+
   .inner-carousel {
     display: flex;
     width: max-content;
@@ -119,9 +132,13 @@
 
 
     @media screen and (max-width: 450px) {
-      width: 320px;
-
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
+
+
   }
 }
 
@@ -142,7 +159,7 @@
 
 
   @media screen and (max-width: 450px) {
-    padding: 4rem 1rem 2rem;
+    padding: 1rem 1rem 1rem;
 
   }
 }
