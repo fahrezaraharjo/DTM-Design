@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { urlFor, client } from '../../client';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { images } from '../../constant';
+import {  Link } from 'react-router-dom';
+
 
 import './PromoC2Section.scss';
 
@@ -20,8 +22,10 @@ const PromoC2 = () => {
 
   return (
     <>
+    
       <div className='program-title'>
-        <img src={images.promoC2} alt="logo" />
+        <h1>PromoC2</h1>
+        {/* <img src={images.promoC2} alt="logo" /> */}
       </div>
       <motion.div
         ref={constraintsRef}
@@ -42,11 +46,11 @@ const PromoC2 = () => {
               key={promo.title + index}
             >
               <div className='container__promo-img'>
-                <a href="/promoc2">
+                  <Link to='/event'>
                   <a href={promo.projectLink} target={promo.projectLink} >
                     <img src={urlFor(promo.imgUrl)} alt="promo.title" />
                   </a>
-                </a>
+                </Link>
               </div>
               <div className='description-artikel'>
                 <h2 className='bold-text' style={{ marginTop: 20 }}>{promo.title}</h2>

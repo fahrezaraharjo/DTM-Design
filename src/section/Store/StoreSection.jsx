@@ -4,6 +4,8 @@ import { animate, motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import { images } from '../../constant';
+import { Link } from 'react-router-dom';
+
 
 import './StoreSection.scss';
 
@@ -26,12 +28,12 @@ const Store = () => {
   return (
     <>
       <div className='program-title'>
-        <img src={images.store} alt="logo" />
+        <h1>Store</h1>
+        {/* <img src={images.store} alt="logo" /> */}
       </div>
       <motion.div
         ref={constraintsRef}
         className='carousel'>
-
         <motion.div
           drag='x'
           dragConstraints={constraintsRef}
@@ -46,7 +48,7 @@ const Store = () => {
               transition={{ duration: 0.5, type: 'tween' }}
               className='app__store-item app__flex'
               key={index}>
-              <a href="/store">
+              <Link to='/store'>
                 <div className='app__store-img app__flex'>
                   <img src={urlFor(store.imgUrl)} alt={store.name} />
                   <motion.div
@@ -66,7 +68,6 @@ const Store = () => {
                     </a>
                   </motion.div>
                 </div>
-
                 <div className='app__store-content app__flex'>
                   <h4 className='bold-text'>{store.title}</h4>
                   <p className='p-text' style={{ marginTop: 10 }}>{store.description}</p>
@@ -75,7 +76,7 @@ const Store = () => {
                     <p className='p-text'>{store.tags[0]}</p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

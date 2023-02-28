@@ -4,6 +4,8 @@ import { animate, motion } from 'framer-motion';
 import { images } from '../../constant';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
+import {  Link } from 'react-router-dom';
+
 
 import './ArtSection.scss';
 
@@ -23,7 +25,8 @@ const Event = () => {
     <>
       <div className='app__content-wrapper'>
         <div className='program-title'>
-          <img src={images.art} alt="logo" />
+          <h1>Art</h1>
+          {/* <img src={images.art} alt="logo" /> */}
         </div>x
         <motion.div
           ref={constraintsRef}
@@ -43,7 +46,8 @@ const Event = () => {
                 transition={{ duration: 0.5, type: 'tween' }}
                 className='app__art-item app__flex'
                 key={index}>
-                <a href="/art">
+                  <Link to='/art'>
+                  
                   <div className='app__art-img app__flex'>
                     <img src={urlFor(art.imgUrl)} alt={art.name} />
                     <motion.div
@@ -57,7 +61,7 @@ const Event = () => {
                           whileHover={{ scale: [1, 0.9] }}
                           transition={{ duration: 0.25 }}
                           className='app__flex'
-                        >
+                          >
                           <AiFillEye />
                         </motion.div>
                       </a>
@@ -72,7 +76,8 @@ const Event = () => {
                       <p className='p-text'>{art.tags[0]}</p>
                     </div>
                   </div>
-                </a>
+                </Link>
+                
               </motion.div>
             ))}
           </motion.div>

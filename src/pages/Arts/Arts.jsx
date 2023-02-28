@@ -83,5 +83,5 @@ const Arts = () => {
 export default AppWrap(
   MotionWrap(Arts, 'app__works'),
   'work',
-  'app__primarybg',
+  'app__artbg',
 );

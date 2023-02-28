@@ -54,7 +54,7 @@
         }
 
         a {
-            color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
             text-decoration: none;
             flex-direction: column;
 
@@ -92,7 +92,7 @@
         cursor: pointer;
         flex-direction: column;
         a {
-            color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
             text-decoration: none;
             flex-direction: column;
 
@@ -151,7 +151,7 @@
         justify-content: flex-end;
         align-items: flex-end;
         flex-direction: column;
-        background: url('../../assets/bgWhite.png');
+        // background: url('../../assets/bgWhite.png');
         background-color: var(--white-color);
         background-size: cover;
         background-repeat: repeat;

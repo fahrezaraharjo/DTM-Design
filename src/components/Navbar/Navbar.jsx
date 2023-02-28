@@ -4,6 +4,7 @@ import './Navbar.scss';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { FaTiktok, FaTwitter, FaInstagramSquare, FaYoutubeSquare } from "react-icons/fa";
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className='app__navbar'>
       <div className='app__navbar-logo'>
-        <a href="/#"><img src={images.logo5} alt="logo" /></a>
+        <Link to="/#"><img src={images.logo5} alt="logo" /></Link>
       </div>
       <ul className='app__navbar-links'>
         {['program', 'art', 'store', 'promoc2', 'event'].map((item) => (

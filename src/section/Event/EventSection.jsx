@@ -3,6 +3,7 @@ import { animate, motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import { images } from '../../constant';
+import {  Link } from 'react-router-dom';
 
 import './EventSection.scss';
 
@@ -22,7 +23,8 @@ const EventCon = () => {
   return (
     <>
       <div className='program-title'>
-        <img src={images.event} alt="logo" />
+        <h1>Event</h1>
+        {/* <img src={images.event} alt="logo" /> */}
       </div>
 
       <motion.div
@@ -42,7 +44,7 @@ const EventCon = () => {
               transition={{ duration: 0.5, type: 'tween' }}
               className='app__store-item app__flex'
               key={index}>
-              <a href="/event">
+                  <Link to='/event'>
                 <div className='app__store-img app__flex'>
                   <img src={urlFor(store.imgUrl)} alt={store.name} />
                   <motion.div
@@ -61,7 +63,7 @@ const EventCon = () => {
                     <p className='p-text'>{store.tags[0]}</p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

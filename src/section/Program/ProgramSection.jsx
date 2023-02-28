@@ -21,7 +21,8 @@ const Program = () => {
   return (
     <>
       <div className='program-title'>
-        <img src={images.program} alt="logo" />
+        {/* <img src={images.program} alt="logo" /> */}
+        <h1>Program</h1>
       </div>
       <motion.div
         ref={constraintsRef}

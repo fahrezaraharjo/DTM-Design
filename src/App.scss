@@ -1,6 +1,6 @@
 .app {
   background-color: var(--primary-color);
-  font-family: var(--font-base);
+  font-family: var(--white-color);
 }
 
 .app__whitebg {
@@ -8,7 +8,7 @@
 }
 
 .app__bannerbg {
-  background: url(https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background: url('../src/assets/bg\ 1.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,7 +24,7 @@
 }
 
 .app__programbg {
-  background: url(https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background: url('../src/assets/bg\ 2.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@
 
 
 .app__eventbg {
-  background: url(https://images.unsplash.com/photo-1524821261922-e353d72c20e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1588&q=80);
+  background: url('../src/assets/bg\ 6.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,7 +41,7 @@
 }
 
 .app__artbg {
-  background: url(https://images.pexels.com/photos/1473215/pexels-photo-1473215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background: url('../src/assets/bg\ 3.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -50,7 +50,7 @@
 
 
 .app__storebg {
-  background: url(https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background: url('../src/assets/bg\ 4.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -58,7 +58,7 @@
 }
 
 .app__promoc2bg {
-  background: url(https://images.pexels.com/photos/3951790/pexels-photo-3951790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background: url('../src/assets/bg\ 5.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -67,11 +67,13 @@
 
 
 .app__footerbg {
-  background: url(https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background: url('../src/assets/bg\ 7.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  backdrop-filter: blur(12px);
+  
 }
 
 
@@ -94,6 +96,12 @@
 }
 
 .program-title {
+
+  h1 {
+    color: white;
+    margin-bottom: 10px;
+  }
+
   @media screen and (max-width: 768px) {
     align-items: center;
   }
@@ -115,6 +123,7 @@
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  
 
   @media screen and (max-width: 450px) {
     width: 100%;
@@ -156,6 +165,7 @@
   padding: 4rem 2rem;
   overflow: hidden;
   flex-grow: 1;
+  
 
 
   @media screen and (max-width: 450px) {
