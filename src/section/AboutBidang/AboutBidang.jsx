@@ -1,70 +1,74 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { urlFor, client } from '../../client';
-import { AppWrap, MotionWrap } from '../../wrapper';
+import { AiFillEye, AiFillGithub } from 'react-icons/ai';
+import { animate, motion } from 'framer-motion';
 import { images } from '../../constant';
-import {  Link } from 'react-router-dom';
+import { AppWrap, MotionWrap } from '../../wrapper';
+import { urlFor, client } from '../../client';
+import { Link } from 'react-router-dom';
 
 
-import './PromoC2Section.scss';
+import './AboutBidang.scss';
 
-const PromoC2 = () => {
-  const [promos, setPromos] = useState([]);
+
+const Event = () => {
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [arts, setArts] = useState([])
   const constraintsRef = useRef(null)
   useEffect(() => {
-    const query = '*[_type == "promoc2"]';
-
-    client.fetch(query).then((data) => {
-      setPromos(data);
-    });
-  }, []);
-
+    const query = '*[_type == "art"]';
+    client.fetch(query)
+      .then((data) => {
+        setArts(data)
+      })
+  }, [])
   return (
     <>
-    
-      <div className='program-title'>
-        <h1>PromoC2</h1>
-        {/* <img src={images.promoC2} alt="logo" /> */}
-      </div>
-      <motion.div
-        ref={constraintsRef}
-        className='carousel'>
-        <motion.di
-          drag='x'
-          dragConstraints={constraintsRef}
+      <div className='about-intro__wrapper'>
+        <motion.div
           animate={animateCard}
           transition={{ duration: 0.5, delayChildren: 0.5 }}
-          className='inner-carousel'
+          className='card-about'
         >
-          {promos.slice(0, 2).map((promo, index) => (
-            <motion.div
-              whileInView={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.5, type: 'tween' }}
-              className='app__promoc2-item'
-              key={promo.title + index}
-            >
-              <div className='container__promo-img'>
-                  <Link to='/event'>
-                  <a href={promo.projectLink} target={promo.projectLink} >
-                    <img src={urlFor(promo.imgUrl)} alt="promo.title" />
-                  </a>
-                </Link>
+          <motion.div>
+
+          </motion.div>
+          <motion.div
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, type: 'tween' }}
+            className='about-item'
+          >
+            <Link to='/art'>
+              <div className='about-content'>
+                <h2>Bidang|<span>Usaha. </span></h2>
+                <p className='p-text' style={{ marginTop: 10 }}>
+                  • Digital Media Services
+                  • Event Organizer
+                  • Talent And Artis Agency
+                  •Design Grafis Animasi
+                  • Production House
+                  • Advertising
+                  • Sanggar Seni Budaya
+                  • Radio Consultant
+                  • Branding activity
+                  • Company Profile
+                  • Film
+                  • Webseries
+                  • TVC
+                  • Digital Comercial
+                  • Event Documentation
+                  • Live Streaming
+                  • Live Event
+                  • Webminar & Seminar
+                </p>
               </div>
-              <div className='description-artikel'>
-                <h2 className='bold-text' style={{ marginTop: 20 }}>{promo.title}</h2>
-                <p className='p-text' style={{ marginTop: 10 }}>{promo.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.di>
-      </motion.div >
+            </Link>
+          </motion.div>
+        </motion.div>
+      </div>
     </>
   )
 }
-export default AppWrap(
-  MotionWrap(PromoC2, 'app__promo'),
-  'promoc2',
-  'app__promoc2bg',
-);
+
+export default AppWrap(MotionWrap(Event,), 'art',
+  'app__eventbg'
+)
