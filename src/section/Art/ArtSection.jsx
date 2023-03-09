@@ -27,7 +27,7 @@ const Event = () => {
         <div className='program-title'>
           <h1>Art</h1>
           {/* <img src={images.art} alt="logo" /> */}
-        </div>x
+        </div>
         <motion.div
           ref={constraintsRef}
           className='carousel'>

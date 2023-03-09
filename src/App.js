@@ -4,7 +4,7 @@ import {
     Route,
   } from "react-router-dom";
 import { Navbar } from './components';
-import { Home, Programs, Arts, Stores, Login } from './pages'
+import { Home, Programs, Arts, Stores, Login, Abouts } from './pages'
 import './App.scss';
 import PromoC2s from "./pages/PromoC2s/PromoC2s";
 
@@ -16,6 +16,7 @@ const App = () => {
                 <Routes>
 
                     <Route path="/" element={<Home />} />
+                    <Route path="/abouts" element={<Abouts />} />
                     <Route path="/program" element={<Programs />} />
                     <Route path="/art" element={<Arts />} />
                     <Route path="/promoc2" element={<PromoC2s />} />
