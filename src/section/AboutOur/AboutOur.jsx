@@ -27,60 +27,7 @@ const Store = () => {
 
   return (
     <>
-      <div className='program-title'>
-        <h1>Store</h1>
-        {/* <img src={images.store} alt="logo" /> */}
-      </div>
-      <motion.div
-        ref={constraintsRef}
-        className='carousel'>
-        <motion.div
-          drag='x'
-          dragConstraints={constraintsRef}
-          animate={animateCard}
-          transition={{ duration: 0.5, delayChildren: 0.5 }}
-          className='inner-carousel'
-        >
-          {stores.slice(0, 3).map((store, index) => (
-            <motion.div
-              whileInView={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.5, type: 'tween' }}
-              className='app__store-item app__flex'
-              key={index}>
-              <Link to='/store'>
-                <div className='app__store-img app__flex'>
-                  <img src={urlFor(store.imgUrl)} alt={store.name} />
-                  <motion.div
-                    whileHover={{ opacity: [0, 1] }}
-                    transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
-                    className='app__store-hover app__flex'
-                  >
-                    <a href={store.projectLink} target={store.projectLink} >
-                      <motion.div
-                        whileInView={{ scale: [0, 1] }}
-                        whileHover={{ scale: [1, 0.9] }}
-                        transition={{ duration: 0.25 }}
-                        className='app__flex'
-                      >
-                        <AiFillEye />
-                      </motion.div>
-                    </a>
-                  </motion.div>
-                </div>
-                <div className='app__store-content app__flex'>
-                  <h4 className='bold-text'>{store.title}</h4>
-                  <p className='p-text' style={{ marginTop: 10 }}>{store.description}</p>
-
-                  <div className='app__store-tag app__flex'>
-                    <p className='p-text'>{store.tags[0]}</p>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
+     <h1>OUR</h1>
     </>
   )
 }
